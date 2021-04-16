@@ -1,10 +1,22 @@
-import React from 'react';
+import React from "react";
 
 const AutocompleteInput = ({ autocomplete, value, clearInput }) => {
   return (
     <div className="autocomplete-input-container">
-      <input data-testid="autocomplete-field" className="autocomplete-field" onChange={(e) => autocomplete(e)} value={value} />
-      <button type="reset" data-testid="autocomplete-clear-button" onClick={(e) => clearInput(e)}>Clear</button>
+      <input
+        data-testid="autocomplete-field"
+        className="autocomplete-field"
+        onChange={(e) => autocomplete(e)}
+        value={value}
+      />
+      <button
+        type="reset"
+        className="autocomplete-clear-button"
+        data-testid="autocomplete-clear-button"
+        onClick={(e) => clearInput(e)}
+      >
+        Clear
+      </button>
     </div>
   );
 };

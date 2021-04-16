@@ -1,3 +1,7 @@
+input, button {
+  border-style: hidden;
+}
+
 .containerCenter {
   display: flex;
   justify-content: flex-start;
@@ -9,13 +13,32 @@
 
 .autocomplete-field {
   width: 200px;
-  height: 25px;
+  height: 35px;
+  margin: 10px 10px 2px 10px;
   border-radius: 5px;
   align-items: center;
+  background-color: #878787;
+}
+
+.autocomplete-clear-button {
+  border-radius: 5px;
+  width: 50px;
+  outline: none;
+  padding: 10px;
+  background-color: #878787;
+}
+
+.autocomplete-clear-button:hover {
+  background-color: #656565;
+}
+
+.autocomplete-clear-button:active {
+  background-color: #444;
 }
 
 .suggestion-list {
   width: 200px;
+  margin-right: 50px; /* Offset the list by the width of the clear button to keep things centered underneath the input */
   background-color: #878787;
 }
 
