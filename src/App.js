@@ -22,7 +22,7 @@ const App = () => {
         suggestions.push(name);
         setList(
           suggestions.map((suggestion, index) => {
-            return <p key={index} onClick={() => setInputValue(suggestion)}>{suggestion}</p>
+            return <p key={index} className="suggestion-list-item" onClick={() => setInputValue(suggestion)}>{suggestion}</p>
           })
         );
         if (event.target.value.length === 0) {
@@ -31,9 +31,17 @@ const App = () => {
       }
     });
   }
+
+  const clearInput = (e) => {
+    e.target.value = '';
+    setList([]);
+    setInputValue('');
+
+  }
+
   return (
     <div className="containerCenter">
-      <AutocompleteInput autocomplete={autocomplete} value={value} />
+      <AutocompleteInput autocomplete={autocomplete} value={value} clearInput={clearInput} />
       <AutocompleteList list={list} />
     </div>
   );

@@ -1,9 +1,31 @@
 .containerCenter {
-  display: grid;
-  justify-content: center;
-  grid-template-rows: 400px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #222;
+  flex-direction: column;
 }
 
-.autocomplete {
-  align-self: center;
+.autocomplete-field {
+  width: 200px;
+  height: 25px;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.suggestion-list {
+  width: 200px;
+  background-color: #878787;
+}
+
+.suggestion-list-item {
+  flex: 1;
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+}
+
+.suggestion-list-item:hover {
+  background-color: #444;
 }

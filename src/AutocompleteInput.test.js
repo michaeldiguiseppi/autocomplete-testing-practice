@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup, fireEvent, } from '@testing-library/react';
 import AutocompleteInput from './AutocompleteInput';
 
 beforeEach(cleanup);
@@ -36,5 +36,21 @@ describe('<AutocompleteInput />', () => {
         fireEvent.change(inputEl, { target: { value: 'ad' } });
         fireEvent.change(inputEl, { target: { value: 'ada' } });
         expect(autocomplete).toHaveBeenCalledTimes(3);
+    });
+
+    it('should render a clear button', () => {
+        const clearInput = jest.fn();
+        const { getByTestId } = render(<AutocompleteInput clearInput={clearInput} />);
+        getByTestId(/autocomplete-clear-button/);
+    });
+
+    it('should clear the input when the clear button is pressed', () => {
+        const clearInput = jest.fn(), autocomplete = jest.fn();
+        const { getByTestId } = render(<AutocompleteInput clearInput={clearInput} autocomplete={autocomplete} />);
+        const inputField = getByTestId(/autocomplete-field/);
+        const clearButton = getByTestId(/autocomplete-clear-button/);
+        fireEvent.change(inputField, { target: { value: 'a' } });
+        fireEvent.click(clearButton);
+        expect(clearInput).toHaveBeenCalledTimes(1);
     });
 });
