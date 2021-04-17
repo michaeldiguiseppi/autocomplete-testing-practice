@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import AutocompleteInput from "./AutocompleteInput";
+import AutocompleteInput from "./components/AutocompleteInput";
 import AutocompleteList from "./AutocompleteList";
 import names from "./names";
 
